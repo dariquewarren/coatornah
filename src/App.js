@@ -50,8 +50,8 @@ const getTemp = (userquery)=>{
 
      
   }).catch((e)=>{
-    setErrorMessage(`INVALID REQUEST '${userRequest}'.TRY AGAIN OR CHECK NETWORK CONNECTION`)
-    
+    console.log(e)
+    window.location.reload('blank_')
   })
  }else{
    return
@@ -95,7 +95,7 @@ return
        setUserRequest(e.target.value)
      }}/>
      <Button 
-     disabled={(userRequest)}
+     disabled={(!userRequest)}
      style={{width:'50%', marginLeft:'auto', marginRight:'auto'}}
      type = 'submit'>Submit</Button>
      </Form>
