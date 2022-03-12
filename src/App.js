@@ -61,7 +61,7 @@ useEffect(()=>{
   return (
     <div className="App">
     <h1>COAT OR NAH?</h1>
-    <h6>Brief Tailored forecast for the ladies...</h6>
+    <h6>Tailored forecast for the ladies...</h6>
 
    <Container >
    
@@ -71,7 +71,12 @@ useEffect(()=>{
     <Form
      onSubmit={(e)=>{
        e.preventDefault()
-       getTemp(userRequest)
+       if(userRequest){
+        getTemp(userRequest)
+       }else{
+return
+       }
+       
 
        
      }}
@@ -86,6 +91,7 @@ useEffect(()=>{
        setUserRequest(e.target.value)
      }}/>
      <Button 
+     disabled={(userRequest)}
      style={{width:'50%', marginLeft:'auto', marginRight:'auto'}}
      type = 'submit'>Submit</Button>
      </Form>
