@@ -146,7 +146,6 @@ useEffect(()=>{
     urlRef.current.style.fontSize ='1rem'
   }}
   onMouseEnter={()=>{
-   urlRef.current.style.color= 'green'
    urlRef.current.style.fontSize ='1.5rem'
   }}
   onClick={()=>{
