@@ -27,7 +27,6 @@ const getForecast = (query)=>{
   fetch(weatherForecastAddress).then((data)=>{
     return data.json()
   }).then((data)=>{
-    const realTodayForecast  = data.forecast.forecastday
     const mergedhours = [...data.forecast.forecastday[0].hour, ...data.forecast.forecastday[1].hour]
     const realTomorrowForecast  = data.forecast.forecastday[1].day
    
@@ -57,7 +56,7 @@ const getTemp = (userquery)=>{
  
 
 useEffect(()=>{
-  
+  console.log('requestLocation',requestLocation)
 }, [requestLocation, requestCurrent, requestLocation.name, errorMessage])
   return (
     <div className="App">
@@ -91,12 +90,12 @@ useEffect(()=>{
      type = 'submit'>Submit</Button>
      </Form>
      </Form.Group>
-     <h4>{(requestLocation.name)?`Showing ${requestLocation.name}`:''}</h4>
 
      </Container>
     
      <hr/>
-    
+     <h4>{(requestLocation.name)?`${requestLocation.name}, ${requestLocation.region}, ${requestLocation.country}`:''}</h4>
+
     {(requestCurrent)
       ?  
     <CurrentConditionCard 
