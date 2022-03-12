@@ -36,6 +36,7 @@ const getForecast = (query)=>{
 }
 
 const getTemp = (userquery)=>{
+ if(userquery){
   const weatherapiAddress = `https://api.weatherapi.com/v1/current.json?key=a4c18e83a5a4402ea38233925220103&q=${userquery}&aqi=no`
   getForecast(userquery)
   fetch(weatherapiAddress).then((data)=>{
@@ -52,6 +53,9 @@ const getTemp = (userquery)=>{
     setErrorMessage(`INVALID REQUEST '${userRequest}'.TRY AGAIN OR CHECK NETWORK CONNECTION`)
     
   })
+ }else{
+   return
+ }
 }
  
 
