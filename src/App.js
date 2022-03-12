@@ -38,12 +38,12 @@ const getForecast = (query)=>{
 }
 
 const getTemp = (userquery)=>{
+  console.log('userquery',userquery)
   const weatherapiAddress = `http://api.weatherapi.com/v1/current.json?key=a4c18e83a5a4402ea38233925220103&q=${userquery}&aqi=no`
   getForecast(userquery)
   fetch(weatherapiAddress).then((data)=>{
     return data.json()
   }).then((data)=>{
-    var currentTemp = data.current.temp_f
     var currentLocation = data.location
     setRequestLocation(currentLocation)
     var currentWeather = data.current
@@ -74,16 +74,19 @@ useEffect(()=>{
     <Form
      onSubmit={(e)=>{
        e.preventDefault()
-       if(userRequest)
        getTemp(userRequest)
+
+       
      }}
-     style={{marginTop:'2rem', marginBottom:'2rem', marginBottom:'2rem'}}
+     style={{marginTop:'2rem', marginBottom:'2rem'}}
      >
      
      <Form.Control 
      style={{width:'50%', marginLeft:'auto', marginRight:'auto'}}
-     type='text' placeholder={(userRequest)?userRequest:'City, Zipcode'} onChange={(e)=>{
+     type='text' placeholder='City, Zipcode' onChange={(e)=>{
        e.preventDefault()
+       console.log('userquery Event',e.target.value)
+
        setUserRequest(e.target.value)
      }}/>
      <Button 
