@@ -32,7 +32,6 @@ const handleDecision = (temperature)=>{
     useEffect(()=>{
       handleDecision(props.temp_f)
 
-      console.log('CurrentConditionCard',props)
     },[props])
   return  (
     

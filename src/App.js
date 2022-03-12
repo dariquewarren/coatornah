@@ -1,6 +1,5 @@
 
 import {useState, useEffect, useRef} from 'react'
-import logo from './logo.svg';
 import './App.css';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -38,7 +37,6 @@ const getForecast = (query)=>{
 }
 
 const getTemp = (userquery)=>{
-  console.log('userquery',userquery)
   const weatherapiAddress = `https://api.weatherapi.com/v1/current.json?key=a4c18e83a5a4402ea38233925220103&q=${userquery}&aqi=no`
   getForecast(userquery)
   fetch(weatherapiAddress).then((data)=>{
@@ -85,7 +83,6 @@ useEffect(()=>{
      style={{width:'50%', marginLeft:'auto', marginRight:'auto'}}
      type='text' placeholder='City, Zipcode' onChange={(e)=>{
        e.preventDefault()
-       console.log('userquery Event',e.target.value)
 
        setUserRequest(e.target.value)
      }}/>
