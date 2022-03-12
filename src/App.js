@@ -24,7 +24,7 @@ const [requestTomorrow, setRequestTomorrow] = useState('')
 
 
 const getForecast = (query)=>{
-  const weatherForecastAddress = `http://api.weatherapi.com/v1/forecast.json?key=a4c18e83a5a4402ea38233925220103&q=${query}&days=2&aqi=no&alerts=no`
+  const weatherForecastAddress = `https://api.weatherapi.com/v1/forecast.json?key=a4c18e83a5a4402ea38233925220103&q=${query}&days=2&aqi=no&alerts=no`
   fetch(weatherForecastAddress).then((data)=>{
     return data.json()
   }).then((data)=>{
@@ -39,7 +39,7 @@ const getForecast = (query)=>{
 
 const getTemp = (userquery)=>{
   console.log('userquery',userquery)
-  const weatherapiAddress = `http://api.weatherapi.com/v1/current.json?key=a4c18e83a5a4402ea38233925220103&q=${userquery}&aqi=no`
+  const weatherapiAddress = `https://api.weatherapi.com/v1/current.json?key=a4c18e83a5a4402ea38233925220103&q=${userquery}&aqi=no`
   getForecast(userquery)
   fetch(weatherapiAddress).then((data)=>{
     return data.json()
